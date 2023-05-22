@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticketing{% endblock %}
+
+{% block body %}
+
+    {% for ticket in tickets %}
+        <article>
+            <header>
+                <a href="{{ path('app_ticket_show', {ticketId:ticket.id}) }}">
+                    <h1 class="titreTicket">{{ticket.titre}}</h1>
+                </a>
+                <time>{{ ticket.date|date('Y/m/d') }}</time>
+            </header>
+            <p>{{ticket.contenu}}</p>
+        </article>
+        <hr />
+    {% endfor %} 
+
+{% endblock %}
+
+
